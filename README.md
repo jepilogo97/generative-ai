@@ -20,7 +20,7 @@ Optaría por un **LLM de propósito general** , en este caso el *Llama 3* combin
 
 ## 3️⃣ Arquitectura propuesta  
 
-![Imagen_](https://github.com/user-attachments/assets/1118ea75-2b94-4192-bf97-d3ed4f5a29bb)
+<img src="https://github.com/user-attachments/assets/125198ab-9ede-4245-86e2-b36eff960e99" width="450" alt="Diagrama del flujo" />
 
 ## ⚙️ Tecnologías Seleccionadas y Justificación
 
