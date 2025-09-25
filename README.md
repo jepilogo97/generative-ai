@@ -41,7 +41,7 @@ Usuarios (chat, email, redes sociales)
 ### 🧩 Gateway + API
 El **gateway** gestiona el tráfico y la seguridad; la **API (FastAPI)** recibe la solicitud y la pasa al orquestador.
 
-- Esta separación permite **escalar** y **asegurar** el sistema, aunque en entornos pequeños ambos roles pueden estar en la misma aplicación FastAPI.
+- Esta separación permite **escalar** y **asegurar** el sistema, dado el rápido crecimuiento se recomienda separar estos roles.
 
 ### 🔗 LangChain + FastAPI
 Combina la **orquestación de flujos de IA** de **LangChain** con la **velocidad y facilidad de despliegue** de **FastAPI**, ofreciendo una API robusta, escalable y de alta disponibilidad para integrar el modelo con los distintos canales de comunicación.
