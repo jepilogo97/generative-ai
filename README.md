@@ -20,22 +20,8 @@ Optaría por un **LLM de propósito general** , en este caso el *Llama 3* combin
 
 ## 3️⃣ Arquitectura propuesta  
 
-```text
-Usuarios (chat, email, redes sociales)
-        │
-     Gateway + API
-        │
- ┌─────Orquestador (LangChain + FastAPI)─────┐
- │        • Preprocesamiento de la pregunta  │
- │        • Llamado a motor de búsqueda      │
- │        • Detección de consulta compleja   │
- │        ├──> Si es compleja → Agente Humano│
- └───────────────────────────────────────────┘
-        │
- Vector DB (FAISS)  ←  Datos EcoMarket
-        │
- LLM (Llama 3)  →  Respuesta generada
-```
+![Imagen_](https://github.com/user-attachments/assets/1118ea75-2b94-4192-bf97-d3ed4f5a29bb)
+
 ## ⚙️ Tecnologías Seleccionadas y Justificación
 
 ### 🧩 Gateway + API
