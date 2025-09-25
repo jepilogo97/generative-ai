@@ -35,7 +35,7 @@ Usuarios (chat, email, redes sociales)
  Vector DB (FAISS)  ←  Datos EcoMarket
         │
  LLM (Llama 3)  →  Respuesta generada
-
+```
 ## ⚙️ Tecnologías Seleccionadas y Justificación
 
 ### 🧩 Gateway + API
