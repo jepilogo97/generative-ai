@@ -71,3 +71,52 @@ Ofrece **calidad de generación cercana a GPT-4** con la flexibilidad de *fine-t
   Además, el orquestador identifica consultas complejas y **deriva automáticamente a un agente humano** con el contexto completo para una atención sin fricciones.
 
 ---
+
+
+## Fase 2 – Evaluación de Fortalezas, Limitaciones y Riesgos Éticos
+
+### 💪 Fortalezas
+- **Reducción del tiempo de respuesta:**  
+  El sistema puede responder en segundos, disminuyendo el promedio de 24 horas a casi tiempo real.
+- **Disponibilidad 24/7:**  
+  La arquitectura en la nube permite atender consultas sin interrupciones, incluso en picos de demanda.
+- **Cobertura de consultas repetitivas (~80 %):**  
+  El orquestador con RAG (LangChain + FAISS) recupera información precisa del catálogo y pedidos de EcoMarket.
+- **Escalabilidad y costos controlados:**  
+  FAISS y Llama 3 autohospedado ofrecen independencia de tarifas por token y facilitan el crecimiento según demanda.
+- **Privacidad y control de datos:**  
+  Al ejecutar Llama 3 en infraestructura privada, EcoMarket mantiene la propiedad de los datos sensibles.
+
+### ⚠️ Limitaciones
+- **Casos complejos (~20 %):**  
+  Requieren empatía y juicio humano (quejas graves, conflictos de reembolso). 
+- **Dependencia de la base de conocimiento:**  
+  Si FAISS contiene información desactualizada o errónea, el modelo puede devolver respuestas incorrectas.
+- **Mantenimiento de infraestructura:**  
+  Ejecutar Llama 3 en la nube implica monitoreo de GPUs, actualizaciones de seguridad y optimización de costos.
+- **Idioma y matices culturales:**  
+  Aunque Llama 3 es multilingüe, podría cometer errores sutiles en expresiones locales o tonos específicos.
+
+### 🛑 Riesgos Éticos
+
+1. **Alucinaciones:**  
+   El modelo podría inventar información sobre pedidos o características de productos.  
+   - *Mitigación:* Validar datos críticos (estado de pedido, precios) con reglas de negocio antes de enviar la respuesta.
+
+2. **Sesgo:**  
+   Los datos de entrenamiento pueden contener sesgos que generen respuestas preferenciales o discriminatorias.  
+   - *Mitigación:* Monitoreo constante, pruebas de equidad y ajuste de *prompts*.
+
+3. **Privacidad de Datos:**  
+   El sistema maneja direcciones, historial de compras y datos personales.  
+   - *Mitigación:* Cifrado en tránsito y reposo, anonimización de logs, control estricto de acceso, y no-retención en servicios externos.
+
+4. **Impacto Laboral:**  
+   La automatización podría reducir la necesidad de agentes humanos.  
+   - *Mitigación:* Enfocar el proyecto en **empoderar** a los agentes, delegando en la IA las tareas repetitivas y permitiendo que el personal se centre en casos complejos o de alto valor.
+
+---
+
+**Conclusión:**  
+La solución basada en **LangChain + FastAPI, FAISS y Llama 3** es potente para reducir tiempos de respuesta y manejar la mayoría de las consultas.  
+Sin embargo, requiere una estrategia clara de **supervisión humana, gobernanza de datos y gestión del cambio** para mitigar riesgos éticos y preservar la calidad del servicio.
