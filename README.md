@@ -15,7 +15,7 @@ Optaría por un **LLM de propósito general** , en este caso el *Llama 3* combin
 - **Precisión y fluidez:** Un LLM grande ofrece lenguaje natural y tono empático para responder en múltiples canales (chat, email, redes sociales).
 - **Costo / eficiencia:** En lugar de un *fine-tuned* propietario —que implicaría entrenamiento continuo y costo elevado— el enfoque RAG permite usar el modelo tal cual, complementado con datos internos indexados.
 - **Escalabilidad:** El mismo modelo puede atender picos de miles de consultas diarias mediante *autoscaling* en la nube.
-- **Privacidad** Es posible tener un control total de los datos al usar con una infraestructura propia en la nube.
+- **Privacidad:** Es posible tener un control total de los datos al usar con una infraestructura propia en la nube.
 
 
 ## 3️⃣ Arquitectura propuesta  
