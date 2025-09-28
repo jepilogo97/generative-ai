@@ -119,13 +119,6 @@ Fase 3/
 - ✅ 4GB espacio libre
 - ✅ Conexión a internet (primera vez)
 
-## 🎯 Datos Disponibles
-
-- **24 pedidos** de ejemplo
-- **Números de seguimiento**: 12345, 12346, 12347, etc.
-- **Estados**: En tránsito, Entregado, Retrasado, etc.
-- **Destinos**: Colombia, México, Argentina, etc.
-
 ## 🔧 Comandos Útiles
 
 ```bash
@@ -148,5 +141,5 @@ docker run -p 8501:8501 -p 11434:11434 -v ollama_data:/root/.ollama pedidos-app
 - **Primera ejecución**: La descarga del modelo llama3 puede tomar 10-15 minutos
 - **Espacio requerido**: ~4GB para la imagen Docker completa
 - **Puertos**: 8501 (Streamlit) y 11434 (Ollama)
-- **Datos**: 24 pedidos de ejemplo incluidos
+- **Datos**: 30 pedidos de ejemplo incluidos
 

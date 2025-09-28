@@ -73,7 +73,7 @@ Ofrece **calidad de generación cercana a GPT-4** con la flexibilidad de *fine-t
 ---
 
 
-## Fase 2 – Evaluación de Fortalezas, Limitaciones y Riesgos Éticos
+# Fase 2 – Evaluación de Fortalezas, Limitaciones y Riesgos Éticos
 
 ### 💪 Fortalezas
 - **Reducción del tiempo de respuesta:**  
@@ -120,3 +120,45 @@ Ofrece **calidad de generación cercana a GPT-4** con la flexibilidad de *fine-t
 **Conclusión:**  
 La solución basada en **LangChain + FastAPI, FAISS y Llama 3** es potente para reducir tiempos de respuesta y manejar la mayoría de las consultas.  
 Sin embargo, requiere una estrategia clara de **supervisión humana, gobernanza de datos y gestión del cambio** para mitigar riesgos éticos y preservar la calidad del servicio.
+
+
+# Fase 3 · Sistema de consulta de pedidos
+
+## Resumen
+Aplicación web con asistente conversacional para consultar estados de pedidos. Combina:
+- Interfaz de chat en Streamlit para clientes.
+- Motor conversacional que usa búsqueda vectorial (FAISS + Sentence Transformers) y generación con Llama 3 vía Ollama.
+
+## Arquitectura
+
+| Componente | Descripción |
+|------------|-------------|
+| `start.py` | Orquesta la ejecución local: verifica Docker, reconstruye (si corresponde) la imagen `pedidos-app` y lanza el contenedor con los puertos 8501 (Streamlit) y 11434 (Ollama). |
+| `check_docker.py` | Diagnóstico independiente: valida instalación/estado de Docker y disponibilidad de archivos clave; puede ejecutar `docker build --dry-run`. |
+| `Dockerfile` | Imagen basada en `python:3.11-slim`; instala compiladores/bibliotecas para FAISS y NumPy, añade Ollama, prepara dependencias y configura `entrypoint.sh`. |
+| `entrypoint.sh` | Dentro del contenedor: inicia Ollama, espera disponibilidad, descarga el modelo `llama3` si falta y lanza la app de Streamlit. |
+| `requirements.txt` | Dependencias fijadas para FAISS, Sentence Transformers, Ollama, Streamlit y utilidades de Hugging Face. |
+| `src/streamlit_app.py` | UI del chat: administra estado en `st.session_state`, detecta números de seguimiento, prepara contexto y llama a `ollama.chat` para responder. |
+| `src/settings.toml` | Configuración del modelo (nombre, temperatura) y prompts/instrucciones para diferenciar consultas de seguimiento y devoluciones. |
+| `src/ingest_data.py` | Pipeline de indexación: lee `data/pedidos.json`, genera descripciones enriquecidas, calcula embeddings (`all-MiniLM-L6-v2`), crea el índice FAISS y persiste metadatos. |
+| `data/pedidos.json` | 30 pedidos de ejemplo con estado, fechas, destino, transportista, enlaces, productos y políticas de devolución. |
+
+## Flujo operativo
+
+1. Ejecutar `python start.py` (o pasos manuales equivalentes).
+2. El script valida Docker y reconstruye/lanzar el contenedor `pedidos-app`.
+3. El contenedor inicia Ollama, garantiza la disponibilidad del modelo `llama3` y arranca la aplicación Streamlit en `http://localhost:8501`.
+4. La UI permite consultar pedidos; al detectar un número válido, busca contexto en el índice FAISS y genera respuestas empáticas y estructuradas según `settings.toml`.
+
+## Datos y modelo
+
+- **Datos:** `data/pedidos.json` alimenta la indexación y la UI.
+- **Modelo conversacional:** Llama 3 servido por Ollama, configurado mediante `settings.toml`.
+
+## Automatización y pruebas
+
+- Scripts de verificación (`start.py`, `check_docker.py`) manejan reconstrucciones, detección de puertos ocupados y fallos comunes.
+- La validación se realiza mediante inspección estática y pruebas manuales de la app.
+
+## Ejemplos de pruebas
+
