@@ -159,9 +159,9 @@ Aplicación web con asistente conversacional para consultar estados de pedidos. 
 
 [prompts]
 
-# -------------------------------------------------------------------
-# Rol del modelo
-# -------------------------------------------------------------------
+### -------------------------------------------------------------------
+### Rol del modelo
+### -------------------------------------------------------------------
 role_prompt = """
 Eres un agente virtual de servicio al cliente altamente capacitado,
 especializado en seguimiento de pedidos y gestión de devoluciones.
@@ -183,9 +183,9 @@ Tu objetivo es brindar una experiencia de atención confiable y empática:
 - Si la consulta no es clara, pide amablemente una aclaración.
 """
 
-# -------------------------------------------------------------------
-# Instrucciones principales
-# -------------------------------------------------------------------
+### -------------------------------------------------------------------
+### Instrucciones principales
+### -------------------------------------------------------------------
 instruction_prompt = """
 Analiza el contenido comprendido entre >>>>>CONTENIDO<<<<<.
 
@@ -237,9 +237,9 @@ Recuerda: la respuesta final debe ser un **mensaje fluido y natural**,
 sin claves ni formato técnico y respetando los nombres exactos provistos.
 """
 
-# -------------------------------------------------------------------
-# Ejemplo de seguimiento (positivo)
-# -------------------------------------------------------------------
+### -------------------------------------------------------------------
+### Ejemplo de seguimiento (positivo)
+### -------------------------------------------------------------------
 positive_example = """
 [Cliente] 2025-09-20: Hola, quiero saber el estado de mi pedido 20002.
 [Agente]  2025-09-20: ¡Hola! Con gusto te ayudo. El pedido 20002 fue entregado
@@ -248,9 +248,9 @@ Puedes ver el detalle en: https://www.fedex.com/fedextrack/?trknbr=20002.
 ¡Gracias por tu compra y que disfrutes tu producto!
 """
 
-# -------------------------------------------------------------------
-# Ejemplo de devolución (mixta)
-# -------------------------------------------------------------------
+### -------------------------------------------------------------------
+### Ejemplo de devolución (mixta)
+### -------------------------------------------------------------------
 return_example = """
 [Cliente] 2025-10-01: Quiero devolver los productos del pedido 20004.
 [Agente]  2025-10-01: Claro, ya revisé el pedido 20004. El "Yogur griego"
@@ -259,9 +259,9 @@ Si tienes más productos que desees devolver y cumplen las políticas,
 con gusto te ayudo a iniciar el proceso. Gracias por tu comprensión.
 """
 
-# -------------------------------------------------------------------
-# Ejemplo de seguimiento con retraso
-# -------------------------------------------------------------------
+### -------------------------------------------------------------------
+### Ejemplo de seguimiento con retraso
+### -------------------------------------------------------------------
 delay_example = """
 [Cliente] 2025-10-05: Buen día, ¿qué pasa con mi pedido 30007?
 [Agente]  2025-10-05: ¡Hola! Revisé el pedido 30007 y actualmente se encuentra
@@ -272,9 +272,9 @@ Te pedimos disculpas por el inconveniente y agradecemos tu paciencia.
 Puedes hacer seguimiento aquí: https://www.dhl.com/track?num=30007.
 """
 
-# -------------------------------------------------------------------
-# Ejemplo de pedido no encontrado
-# -------------------------------------------------------------------
+### -------------------------------------------------------------------
+### Ejemplo de pedido no encontrado
+### -------------------------------------------------------------------
 not_found_example = """
 [Cliente] 2025-10-08: Necesito saber el estado del pedido 99999.
 [Agente]  2025-10-08: Hola, intenté ubicar el pedido 99999, pero no encontré
@@ -282,9 +282,9 @@ información en nuestro sistema. Por favor verifica que el número de seguimient
 sea correcto o compárteme más detalles para ayudarte mejor.
 """
 
-# -------------------------------------------------------------------
-# Ejemplo de devolución múltiple
-# -------------------------------------------------------------------
+### -------------------------------------------------------------------
+### Ejemplo de devolución múltiple
+### -------------------------------------------------------------------
 multi_return_example = """
 [Cliente] 2025-10-10: Quiero devolver los artículos del pedido 45001.
 [Agente]  2025-10-10: Con gusto. Para el pedido 45001:
@@ -296,9 +296,9 @@ Si deseas continuar, puedo enviarte las instrucciones para devolver
 los productos aceptados.
 """
 
-# -------------------------------------------------------------------
-# Ejemplo de consulta combinada (seguimiento + devolución)
-# -------------------------------------------------------------------
+### -------------------------------------------------------------------
+### Ejemplo de consulta combinada (seguimiento + devolución)
+### -------------------------------------------------------------------
 combined_example = """
 [Cliente] 2025-10-12: Hola, quiero saber si ya llegó mi pedido 50123 y
 también si puedo devolver el "Paraguas rojo" de ese pedido.
@@ -317,11 +317,11 @@ Si deseas iniciar el proceso, te envío las indicaciones.
 
 ## Ejemplos de pruebas
 
-<img width="793" height="556" alt="image" src="https://github.com/user-attachments/assets/3dc7d6f1-cf9c-4a8e-8116-cec021215d7a" />
+<img width="550" height="420" alt="image" src="https://github.com/user-attachments/assets/3dc7d6f1-cf9c-4a8e-8116-cec021215d7a" />
 
-<img width="712" height="537" alt="image" src="https://github.com/user-attachments/assets/0fd99756-93b5-48da-9e67-a085eed37d8c" />
+<img width="550" height="420" alt="image" src="https://github.com/user-attachments/assets/0fd99756-93b5-48da-9e67-a085eed37d8c" />
 
-<img width="807" height="513" alt="image" src="https://github.com/user-attachments/assets/5adc0c9a-ee80-4034-b72a-9e6103e87a1f" />
+<img width="550" height="420" alt="image" src="https://github.com/user-attachments/assets/5adc0c9a-ee80-4034-b72a-9e6103e87a1f" />
 
 
 
